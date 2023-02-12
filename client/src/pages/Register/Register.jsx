@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import style from'./Login.module.css';
+import style from'./Register.module.css';
 
-const Login = () => {
+const Register = () => {
     return (
         <form>
             <div className={style.container}>
-                <h1 className={style.title}>Авторизация</h1>
-                <div><p>Введите данные для авторизации</p></div>
+                <h1 className={style.title}>Регистрация</h1>
+                <div><p>Введите данные для регистрации</p></div>
                 
 
                 <label htmlFor="email">
@@ -20,16 +20,27 @@ const Login = () => {
                 </label>
                 <input type="password" placeholder="Enter Password" name="psw" id="psw" required />
 
+                <label htmlFor="psw-repeat">
+                    <b>Repeat Password</b>
+                </label>
+                <input
+                    type="password"
+                    placeholder="Repeat Password"
+                    name="psw-repeat"
+                    id="psw-repeat"
+                    required
+                />
+
                 <button type="submit" className={style.registerbtn}>
-                    Вход
+                    Регистрация
                 </button>
                 <p>
-                    Нет аккаунта? <Link to="/register">Регистрация</Link>
+                    Есть аккаунт? <Link to="/login">Войти</Link>
                 </p>
             </div>
 
         </form>
     );
-}
+};
 
-export default Login;
+export default Register;
