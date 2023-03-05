@@ -1,36 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import style from './Header.module.css';
 
 const Header = () => {
-    const btnsMenu = [
-        {
-            name: 'Home',
-            path: '/',
-        },
-        {
-            name: 'Вход',
-            path: '/login',
-        },
-        {
-            name: 'Регистрация',
-            path: '/register',
-        },
-    ];
-    let location = useLocation();
 
-    const [activeBtn, setActiveBtn] = useState(0);
-    useEffect(() => {
-        if (location.pathname === '/') {
-            setActiveBtn(0);
-        }
-        if (location.pathname === '/login') {
-            setActiveBtn(1);
-        }
-        if (location.pathname === '/register') {
-            setActiveBtn(2);
-        }
-    }, [location]);
+    const btnsMenu = ['Home', 'Login', 'Registration'];
+
+    
+    const [activeBtn, setActiveBtn] = useState('');
+    
+    localStorage.setItem("activeIndex", activeBtn)
 
     return (
         <nav className={style.header}>
@@ -44,9 +23,9 @@ const Header = () => {
                         <Link
                             onClick={() => setActiveBtn(index)}
                             className={activeBtn === index ? style.active : ''}
-                            to={btn.path}
+                            to={btn.toLowerCase()}
                             key={index}>
-                            {btn.name}
+                            {btn}
                         </Link>
                     );
                 })}
