@@ -7,7 +7,6 @@ import UserModel from '../models/User.js';
 export const registration = async (req, res) => {
     try {
         const errors = validationResult(req);
-
         if (!errors.isEmpty()) {
             return res.status(400).json(errors.array());
         }
