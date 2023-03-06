@@ -2,7 +2,6 @@ import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import axios from '../../axios';
 import Post from '../../components/Post/Post';
 import { fetchPost } from '../../redux/slices/posts';
 
