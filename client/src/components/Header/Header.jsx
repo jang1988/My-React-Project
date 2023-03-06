@@ -9,7 +9,6 @@ const Header = () => {
     
     const [activeBtn, setActiveBtn] = useState('');
     
-    localStorage.setItem("activeIndex", activeBtn)
 
     return (
         <nav className={style.header}>
