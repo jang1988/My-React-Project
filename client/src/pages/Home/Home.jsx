@@ -1,20 +1,21 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
-import Post from '../../components/Post/Post';
-import { fetchPost } from '../../redux/slices/posts';
+// import Post from '../../components/Post/Post';
+// import { fetchPost } from '../../redux/slices/posts';
 
 const Home = () => {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    React.useEffect(() => {
-        dispatch(fetchPost())
-    }, []);
+    // React.useEffect(() => {
+    //     dispatch(fetchPost())
+    // }, []);
 
     return (
         <div>
-            {[...Array(5)].map(() => (
+            <>HOME</>
+            {/* {[...Array(5)].map(() => (
                 <Post
                     id={1}
                     title="Roast the code #1 | Rock Paper Scissors"
@@ -31,7 +32,7 @@ const Home = () => {
                     isLoading={true}
                     isEditable
                 />
-            ))}
+            ))} */}
         </div>
     );
 };
