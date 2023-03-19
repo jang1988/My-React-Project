@@ -1,12 +1,10 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { validationResult } from 'express-validator';
 
 import UserModel from '../models/User.js';
 
 export const registration = async (req, res) => {
     try {
-
         const password = req.body.password;
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(password, salt);
@@ -42,7 +40,7 @@ export const registration = async (req, res) => {
             message: 'Не удалось зарегистрироваться',
         });
     }
-}
+};
 
 export const login = async (req, res) => {
     try {
@@ -78,25 +76,23 @@ export const login = async (req, res) => {
             ...userData,
             token,
         });
-
     } catch (error) {
         console.log('error: ', error);
         res.status(500).json({
             message: 'Не удалось авторизоваться',
         });
     }
-}
+};
 
 export const getMe = async (req, res) => {
     try {
-
-        const user = await UserModel.findById(req.userId)
-        console.log('user: ', user)
+        const user = await UserModel.findById(req.userId);
+        console.log('user: ', user);
 
         if (!user) {
             return res.status(404).json({
                 message: 'Пользователь не найден',
-            })
+            });
         }
 
         const { passwordHash, ...userData } = user._doc;
@@ -110,4 +106,4 @@ export const getMe = async (req, res) => {
             message: 'Нет доступа',
         });
     }
-}
+};

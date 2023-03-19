@@ -3,35 +3,29 @@ import { Link, useLocation } from 'react-router-dom';
 import style from './Header.module.css';
 
 const Header = () => {
-
     let location = useLocation();
-    
-    const btnsMenu = ['Home', 'Login', 'Registration'];
+
+    let btnsMenu = React.useMemo(() => ['home', 'login', 'registration'], []) ;
 
     const [activeBtn, setActiveBtn] = useState('');
 
-
-
     useEffect(() => {
-
-        if (location.pathname || '/' === `/${btnsMenu[0].toLowerCase()}`) {
-            setActiveBtn(btnsMenu[0])
+        if (location.pathname || '/' === `/${btnsMenu[0]}`) {
+            setActiveBtn(btnsMenu[0]);
         }
 
-        if (location.pathname === `/${btnsMenu[1].toLowerCase()}`) {
-            setActiveBtn(btnsMenu[1])
+        if (location.pathname === `/${btnsMenu[1]}`) {
+            setActiveBtn(btnsMenu[1]);
         }
 
-        if (location.pathname === `/${btnsMenu[2].toLowerCase()}`) {
-            setActiveBtn(btnsMenu[2])
+        if (location.pathname === `/${btnsMenu[2]}`) {
+            setActiveBtn(btnsMenu[2]);
         }
-
-    }, [location, btnsMenu]);
+    }, [location.pathname, btnsMenu]);
 
     const onClickButton = (btn) => {
         setActiveBtn(btn);
     };
-
     return (
         <nav className={style.header}>
             <Link to="/" className={style.logo}>
@@ -44,9 +38,10 @@ const Header = () => {
                         <Link
                             onClick={() => onClickButton(btn)}
                             className={activeBtn === btn ? style.active : ''}
-                            to={btn.toLowerCase()}
-                            key={btn}>
-                            {btn}
+                            to={btn}
+                            key={btn}
+                        >
+                            {btn.toUpperCase()}
                         </Link>
                     );
                 })}
