@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import TeamCard from '../../components/TeamCard/TeamCard';
 
 const Home = () => {
     const [teamsNBA, setTeamsNBA] = React.useState([]);
+    console.log('teamsNBA: ', teamsNBA)
     let params = React.useRef([]);
-    console.log('params: ', params);
 
     React.useEffect(() => {
         axios
@@ -19,12 +20,10 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div style={{display: 'flex',flexWrap: 'wrap', justifyContent: 'space-around'}}>
             {teamsNBA.map((team) => {
                 return (
-                    <div key={team.id}>
-                        <h1>{team.full_name}</h1>
-                    </div>
+                    <TeamCard key={team.id} team={team}/>
                 );
             })}
         </div>

@@ -1,0 +1,23 @@
+.card {
+    background-color: gainsboro;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    margin-bottom: 10px;
+}
+
+.card div {
+    margin: .7rem;
+}
+
+h4 {
+    text-align: center;
+}
+
+.cardInner {
+    display: flex;
+    gap: 5px;
+}

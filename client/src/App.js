@@ -9,7 +9,6 @@ import './App.css';
 function App() {
     return (
         <>
-        
             <Header />
 
             <Routes>
@@ -22,4 +21,4 @@ function App() {
     );
 }
 
-export default App
+export default App;
