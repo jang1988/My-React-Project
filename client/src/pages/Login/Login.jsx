@@ -14,13 +14,27 @@ const Login = () => {
                 <label htmlFor="email">
                     <b>Email</b>
                 </label>
-                
-                <input type="text" placeholder="Enter Email" name="email" id="email" required />
+
+                <input
+                    type="text"
+                    placeholder="Enter Email"
+                    name="email"
+                    id="email"
+                    autoComplete="on"
+                    required
+                />
 
                 <label htmlFor="psw">
                     <b>Password</b>
                 </label>
-                <input type="password" placeholder="Enter Password" name="psw" id="psw" required />
+                <input
+                    type="password"
+                    placeholder="Enter Password"
+                    name="psw"
+                    id="psw"
+                    autoComplete="on"
+                    required
+                />
 
                 <button type="submit" className={style.registerbtn}>
                     Вход
