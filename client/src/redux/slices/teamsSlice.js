@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     teams: [],
-    params: {},
+    params: {total_pages: 5},
 };
 
 const teamsSlice = createSlice({
