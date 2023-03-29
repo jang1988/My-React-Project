@@ -7,6 +7,7 @@ import { setTeams, setParams } from '../../redux/slices/teamsSlice';
 import Pagination from '../../components/Pagination/Pagination';
 
 import style from './Home.module.css'
+import Skeleton from '../../components/Skeleton/Skeleton';
 
 const Home = () => {
     const [loading, setLoading] = React.useState(true);
@@ -38,9 +39,7 @@ const Home = () => {
     return (
         <div className={style.root}>
             <div className={style.teamsNBA}>
-                {teamsNBA.map((team) => {
-                    return <TeamCard key={team.id} team={team} />;
-                })}
+                {teamsNBA.map((team) => loading ? <Skeleton /> : <TeamCard key={team.id} team={team} />)}
             </div>
             <Pagination params={params} onClickPagin={number => setCurrentPage(number)}/>
         </div>
