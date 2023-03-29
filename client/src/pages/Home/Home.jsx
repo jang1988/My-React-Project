@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setTeams, setParams } from '../../redux/slices/teamsSlice';
 import Pagination from '../../components/Pagination/Pagination';
 
+import style from './Home.module.css'
+
 const Home = () => {
     const [loading, setLoading] = React.useState(true);
     console.log('loading: ', loading);
@@ -34,8 +36,8 @@ const Home = () => {
     }, [fetchTeams]);
 
     return (
-        <div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+        <div className={style.root}>
+            <div className={style.teamsNBA}>
                 {teamsNBA.map((team) => {
                     return <TeamCard key={team.id} team={team} />;
                 })}
