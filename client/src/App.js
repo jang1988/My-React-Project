@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
-import Register from './pages/Register/Register';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
 import Header from './components/Header/Header';
 
 import './App.css';
+import Players from './pages/Players';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
 
             <Routes>
                 <Route path="/home" element={<Home />} />
+                <Route path="/players" element={<Players />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/registration" element={<Register />} />
                 <Route path="*" element={<Home />} />

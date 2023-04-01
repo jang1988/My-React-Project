@@ -5,7 +5,7 @@ import style from './Header.module.css';
 const Header = () => {
     let location = useLocation();
 
-    let btnsMenu = React.useMemo(() => ['home', 'login', 'registration'], []) ;
+    let btnsMenu = React.useMemo(() => ['teams', 'players', 'login', 'registration'], []) ;
 
     const [activeBtn, setActiveBtn] = useState('');
 
@@ -14,12 +14,16 @@ const Header = () => {
             setActiveBtn(btnsMenu[0]);
         }
 
-        if (location.pathname === `/${btnsMenu[1]}`) {
+        if (location.pathname || '/' === `/${btnsMenu[1]}`) {
             setActiveBtn(btnsMenu[1]);
         }
 
         if (location.pathname === `/${btnsMenu[2]}`) {
             setActiveBtn(btnsMenu[2]);
+        }
+
+        if (location.pathname === `/${btnsMenu[3]}`) {
+            setActiveBtn(btnsMenu[3]);
         }
     }, [location.pathname, btnsMenu]);
 

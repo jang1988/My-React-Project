@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setTeams, setParams } from '../../redux/slices/teamsSlice';
 import Pagination from '../../components/Pagination/Pagination';
 
-import style from './Home.module.css'
+import style from './Home.module.css';
 import Skeleton from '../../components/Skeleton/Skeleton';
 
 const Home = () => {
@@ -16,13 +16,15 @@ const Home = () => {
 
     const teamsNBA = useSelector((state) => state.teamsNBA.teams);
     const params = useSelector((state) => state.teamsNBA.params);
-    
-    const [currentPage, setCurrentPage] = React.useState(1)
+
+    const [currentPage, setCurrentPage] = React.useState(1);
 
     const fetchTeams = useCallback(async () => {
         setLoading(true);
         try {
-            const resTeams = await axios.get(`https://www.balldontlie.io/api/v1/teams?page=${currentPage}`);
+            const resTeams = await axios.get(
+                `https://www.balldontlie.io/api/v1/teams?page=${currentPage}`,
+            );
             dispatch(setTeams(resTeams.data.data));
             dispatch(setParams(resTeams.data.meta));
         } catch (error) {
@@ -34,14 +36,19 @@ const Home = () => {
 
     React.useEffect(() => {
         fetchTeams();
+
+        window.scroll(0, 0)
     }, [fetchTeams]);
 
     return (
         <div className={style.root}>
             <div className={style.teamsNBA}>
-                {teamsNBA.map((team) => loading ? <Skeleton /> : <TeamCard key={team.id} team={team} />)}
+                {/* {teamsNBA.map((team) => loading ? <Skeleton /> : <TeamCard key={team.id} team={team} />)} */}
+                {loading
+                    ? [...new Array(20)].map((_, index) => <Skeleton key={index} />)
+                    : teamsNBA.map((team) => <TeamCard key={team.id} team={team} />)}
             </div>
-            <Pagination params={params} onClickPagin={number => setCurrentPage(number)}/>
+            <Pagination params={params} onClickPagin={(number) => setCurrentPage(number)} />
         </div>
     );
 };
