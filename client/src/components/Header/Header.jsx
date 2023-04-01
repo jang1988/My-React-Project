@@ -14,7 +14,7 @@ const Header = () => {
             setActiveBtn(btnsMenu[0]);
         }
 
-        if (location.pathname || '/' === `/${btnsMenu[1]}`) {
+        if (location.pathname === `/${btnsMenu[1]}`) {
             setActiveBtn(btnsMenu[1]);
         }
 
@@ -33,7 +33,7 @@ const Header = () => {
     return (
         <nav className={style.header}>
             <Link to="/" className={style.logo}>
-                CompanyLogo
+                <img src='https://www.balldontlie.io/images/cryingjordan.jpeg' alt='logo' />
             </Link>
 
             <div className={style.headerRight}>

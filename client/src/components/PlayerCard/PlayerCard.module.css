@@ -1,0 +1,19 @@
+.root {
+    background-color: rgba(	182, 208, 226, .5);
+    border: 10px solid dodgerblue;
+    border-radius: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    margin-bottom: 10px;
+}
+
+.root p {
+    margin: 5px;
+}
+
+.team {
+    text-align: center;
+}
