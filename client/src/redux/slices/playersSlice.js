@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     players: [],
-    params: {},
+    params: {total_pages: 5},
+    search: '',
 };
 
 const playersSlice = createSlice({
@@ -15,9 +16,12 @@ const playersSlice = createSlice({
         setParams(state, action) {
             state.params = action.payload
         },
+        setSearch(state, action) {
+            state.search = action.payload
+        },
     },
 });
 
-export const { setPlayers, setParams } = playersSlice.actions;
+export const { setPlayers, setParams, setSearch } = playersSlice.actions;
 
 export const playersReducer = playersSlice.reducer

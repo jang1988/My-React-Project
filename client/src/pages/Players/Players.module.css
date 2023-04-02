@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-image: url('../../../images/players-bg.jpg');
     background-position: center;
     background-size: cover;
@@ -13,5 +14,51 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    margin: 155px 10px 10px 10px;
+}
+
+.inputWrapper {
+    position: absolute;
+    top: 0;
+    right: 50px;
     margin: 100px 10px 10px 10px;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 6px;
+}
+
+.closeIcon {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    cursor: pointer;
+}
+
+.input[type='text'] {
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    background: #ffffff !important;
+    outline: none;
+    height: 12px;
+    width: 120px;
+    padding-left: 40px;
+}
+
+.input:focus {
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+@media screen and (max-width: 600px) {
+    .inputWrapper {
+        position: absolute;
+        top: 0;
+        left: 5px;
+        margin: 100px 10px 10px 10px;
+    }
 }

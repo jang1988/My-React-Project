@@ -11,7 +11,6 @@ import Skeleton from '../../components/Skeletons/TeamsSkeleton';
 
 const Home = () => {
     const [loading, setLoading] = React.useState(true);
-    console.log('loading: ', loading);
     const dispatch = useDispatch();
 
     const teamsNBA = useSelector((state) => state.teamsNBA.teams);
