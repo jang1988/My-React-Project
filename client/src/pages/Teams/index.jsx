@@ -6,8 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setTeams, setParams } from '../../redux/slices/teamsSlice';
 import Pagination from '../../components/Pagination/Pagination';
 
-import style from './Home.module.css';
-import Skeleton from '../../components/Skeleton/Skeleton';
+import style from './Teams.module.css';
+import Skeleton from '../../components/Skeletons/TeamsSkeleton';
 
 const Home = () => {
     const [loading, setLoading] = React.useState(true);

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setParams, setPlayers } from '../../redux/slices/playersSlice';
 import PlayersCadr from '../../components/PlayerCard';
 
+import Skeleton from '../../components/Skeletons/PlayersSkeleton';
+
 import style from './Players.module.css';
 
 const Players = () => {
@@ -35,9 +37,10 @@ const Players = () => {
     return (
         <div className={style.root}>
             <div className={style.players}>
-                {loading ? 'LOADING...' : players.map((player) => {
-                    return <PlayersCadr key={player.id} player={player}/>
-                })}
+                {loading 
+                ? [...new Array(20)].map((_, index) => <Skeleton key={index} />)
+                : players.map((player) => <PlayersCadr key={player.id} player={player}/>
+                )}
             </div>
         </div>
     );
