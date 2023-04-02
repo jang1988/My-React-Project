@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/NBA-React/static/css/main.7bc7a200.css",
-    "main.js": "/NBA-React/static/js/main.6974253c.js",
-    "static/media/players-bg.jpg": "/NBA-React/static/media/players-bg.6cdb51dd9f803ac66593.jpg",
-    "static/media/main-bg.jpg": "/NBA-React/static/media/main-bg.f0559cd2e5d904cd929d.jpg",
-    "index.html": "/NBA-React/index.html",
-    "main.7bc7a200.css.map": "/NBA-React/static/css/main.7bc7a200.css.map",
-    "main.6974253c.js.map": "/NBA-React/static/js/main.6974253c.js.map"
+    "main.css": "/My-React-Project/static/css/main.35e58480.css",
+    "main.js": "/My-React-Project/static/js/main.6974253c.js",
+    "static/media/players-bg.jpg": "/My-React-Project/static/media/players-bg.6cdb51dd9f803ac66593.jpg",
+    "static/media/main-bg.jpg": "/My-React-Project/static/media/main-bg.f0559cd2e5d904cd929d.jpg",
+    "index.html": "/My-React-Project/index.html",
+    "main.35e58480.css.map": "/My-React-Project/static/css/main.35e58480.css.map",
+    "main.6974253c.js.map": "/My-React-Project/static/js/main.6974253c.js.map"
   },
   "entrypoints": [
-    "static/css/main.7bc7a200.css",
+    "static/css/main.35e58480.css",
     "static/js/main.6974253c.js"
   ]
 }
