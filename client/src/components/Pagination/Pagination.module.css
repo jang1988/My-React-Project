@@ -28,6 +28,10 @@
     color: white;
 }
 
+.root li a {
+    text-shadow: 0px 0px 10px white;
+}
+
 .root li:hover a {
     background: dodgerblue;
     color: white;

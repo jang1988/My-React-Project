@@ -13,14 +13,11 @@ import Pagination from '../../components/Pagination/Pagination';
 const Players = () => {
     const dispatch = useDispatch();
 
-    const [valueInput, setValueInput] = React.useState('');
-    console.log('valueInput: ', valueInput);
-
     const [loading, setLoading] = React.useState(true);
     const [currentPage, setCurrentPage] = React.useState(1);
+    const [valueInput, setValueInput] = React.useState('');
 
     const { players, params, search } = useSelector((state) => state.playersNBA);
-    console.log('search: ', search);
 
     const inputRef = useRef();
 
