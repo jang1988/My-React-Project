@@ -13,15 +13,12 @@ const Header = () => {
         if (location.pathname || '/' === `/${btnsMenu[0]}`) {
             setActiveBtn(btnsMenu[0]);
         }
-
         if (location.pathname === `/${btnsMenu[1]}`) {
             setActiveBtn(btnsMenu[1]);
         }
-
         if (location.pathname === `/${btnsMenu[2]}`) {
             setActiveBtn(btnsMenu[2]);
         }
-
         if (location.pathname === `/${btnsMenu[3]}`) {
             setActiveBtn(btnsMenu[3]);
         }

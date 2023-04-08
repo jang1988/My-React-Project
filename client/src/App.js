@@ -6,9 +6,9 @@ import Header from './components/Header/Header';
 
 import './App.css';
 import Players from './pages/Players';
+import PageTeam from './pages/PageTeam/PageTeam';
 
 function App() {
-
     return (
         <>
             <Header />
@@ -19,6 +19,8 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/registration" element={<Register />} />
                 <Route path="*" element={<Home />} />
+
+                <Route path="/team/:id" element={<PageTeam />} />
             </Routes>
         </>
     );
