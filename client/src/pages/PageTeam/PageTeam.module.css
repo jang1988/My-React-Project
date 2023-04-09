@@ -1,0 +1,25 @@
+.card {
+    background-color: #B6D0E2;
+    border: 10px solid dodgerblue;
+    border-radius: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: 150px auto;
+    font-size: 2rem;
+}
+
+.card div {
+    margin: .7rem;
+}
+
+h4 {
+    text-align: center;
+}
+
+.cardInner {
+    display: flex;
+    gap: 5px;
+}

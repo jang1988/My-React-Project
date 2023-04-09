@@ -2,6 +2,9 @@ import axios from 'axios';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
+import style from './PageTeam.module.css';
+
+
 const PageTeam = () => {
     const params = useParams();
 
@@ -18,15 +21,15 @@ const PageTeam = () => {
     }, [params.id]);
 
     return (
-        <div>
-            <h4>title</h4>
-            <div>city: </div>
-            <div>
-                <p>{}</p>
-                <p>{}</p>
+        <div className={style.card}>
+            <h4>{team.full_name}</h4>
+            <div>city: {team.city}</div>
+            <div className={style.cardInner}>
+                <p>{team.conference}</p>
+                <p>{team.division}</p>
             </div>
-            <div>name: {}</div>
-            <div>{}</div>
+            <div>name: {team.name}</div>
+            <div>{team.abbreviation}</div>
         </div>
     );
 };

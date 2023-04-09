@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 
 import './App.css';
 import Players from './pages/Players';
-import PageTeam from './pages/PageTeam/PageTeam';
+import PageTeam from './pages/PageTeam';
 
 function App() {
     return (

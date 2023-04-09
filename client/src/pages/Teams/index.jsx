@@ -7,12 +7,12 @@ import Pagination from '../../components/Pagination/Pagination';
 
 import style from './Teams.module.css';
 import Skeleton from '../../components/Skeletons/TeamsSkeleton';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const dispatch = useDispatch();
 
     const { status, params, teams } = useSelector((state) => state.teamsNBA);
- 
 
     const [currentPage, setCurrentPage] = React.useState(1);
 
@@ -28,7 +28,6 @@ const Home = () => {
         // fetchTeams();
         dispatch(fetchTeamsThunk({ currentPage }));
 
-
         window.scroll(0, 0);
     }, [dispatch, currentPage]);
 
@@ -38,7 +37,11 @@ const Home = () => {
                 {/* {teamsNBA.map((team) => loading ? <Skeleton /> : <TeamCard key={team.id} team={team} />)} */}
                 {status === 'loading'
                     ? [...new Array(20)].map((_, index) => <Skeleton key={index} />)
-                    : teams.map((team) => <TeamCard key={team.id} team={team} />)}
+                    : teams.map((team) => (
+                          <Link to={`/team/${team.id}`} key={team.id}>
+                              <TeamCard team={team} />
+                          </Link>
+                      ))}
             </div>
             <Pagination params={params} onClickPagin={(number) => setCurrentPage(number)} />
         </div>
