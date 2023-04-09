@@ -9,7 +9,6 @@ const PageTeam = () => {
     const params = useParams();
 
     const [team, setTeam] = React.useState({});
-    console.log('team: ', team)
 
     async function fetchTeam(id) {
         const { data } = await axios.get(`https://www.balldontlie.io/api/v1/teams/${id}`);
