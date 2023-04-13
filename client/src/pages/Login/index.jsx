@@ -1,12 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Login.module.css';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { fetchLoginThunk } from '../../redux/slices/authSlice';
 
 const Login = () => {
+
+    const dispatch = useDispatch()
+
+    const {
+        register,
+        handleSubmit,
+        setError,
+        formState: { errors, isValid },
+    } = useForm({
+        defaultValues: {
+            email: 'Petro@test.com',
+            password: '12345',
+        },
+        mode: 'onChange',
+    });
+
+    const onSubmit = (value) => {
+        console.log('value: ', value)
+        dispatch(fetchLoginThunk(value))
+    };
+
     return (
-        <form>
-            <div className={style.container}>
-                <h1 className={style.title}>Авторизация</h1>
+        <div className={style.container}>
+            <h1 className={style.title}>Авторизация</h1>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <p>Введите данные для авторизации</p>
                 </div>
@@ -16,12 +40,13 @@ const Login = () => {
                 </label>
 
                 <input
-                    type="text"
+                    type="email"
                     placeholder="Enter Email"
                     name="email"
                     id="email"
                     autoComplete="on"
                     required
+                    {...register('email', {required: 'email'})}
                 />
 
                 <label htmlFor="psw">
@@ -34,6 +59,7 @@ const Login = () => {
                     id="psw"
                     autoComplete="on"
                     required
+                    {...register('password', {required: 'password'})}
                 />
 
                 <button type="submit" className={style.registerbtn}>
@@ -42,8 +68,8 @@ const Login = () => {
                 <p>
                     Нет аккаунта? <Link to="/register">Регистрация</Link>
                 </p>
-            </div>
-        </form>
+            </form>
+        </div>
     );
 };
 
