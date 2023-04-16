@@ -1,20 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import style from './Login.module.css';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { fetchLoginThunk } from '../../redux/slices/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchLoginThunk, selectLogin } from '../../redux/slices/authSlice';
 
 const Login = () => {
+    const dispatch = useDispatch();
+    const isAuth = useSelector(selectLogin);
+    console.log('isAusth: ', isAuth);
 
-    const dispatch = useDispatch()
-
-    const {
-        register,
-        handleSubmit,
-        setError,
-        formState: { errors, isValid },
-    } = useForm({
+    const { register, handleSubmit } = useForm({
         defaultValues: {
             email: 'Petro@test.com',
             password: '12345',
@@ -22,10 +18,21 @@ const Login = () => {
         mode: 'onChange',
     });
 
-    const onSubmit = (value) => {
-        console.log('value: ', value)
-        dispatch(fetchLoginThunk(value))
+    const onSubmit = async (value) => {
+        const data = await dispatch(fetchLoginThunk(value));
+        console.log('data: ', data);
+
+        if (!data.payload) {
+            return alert('ERROR!!! WRONG PASSWORD OR LOGIN');
+        }
+        if ('token' in data.payload) {
+            window.localStorage.setItem('token', data.payload.token);
+        }
     };
+
+    if (isAuth) {
+        return <Navigate to="/" />;
+    }
 
     return (
         <div className={style.container}>
@@ -46,7 +53,7 @@ const Login = () => {
                     id="email"
                     autoComplete="on"
                     required
-                    {...register('email', {required: 'email'})}
+                    {...register('email', { required: 'email' })}
                 />
 
                 <label htmlFor="psw">
@@ -59,7 +66,7 @@ const Login = () => {
                     id="psw"
                     autoComplete="on"
                     required
-                    {...register('password', {required: 'password'})}
+                    {...register('password', { required: 'password' })}
                 />
 
                 <button type="submit" className={style.registerbtn}>
