@@ -6,10 +6,10 @@ import Register from './pages/Register';
 import Header from './components/Header';
 
 import './App.css';
-import Players from './pages/Players';
-import PageTeam from './pages/PageTeam';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAuthThunk, selectLogin } from './redux/slices/authSlice';
+import Players from './pages/Players'
+import PageTeam from './pages/PageTeam'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAuthThunk, selectLogin } from './redux/slices/authSlice'
 
 function App() {
     const dispatch = useDispatch()
