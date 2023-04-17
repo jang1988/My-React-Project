@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Teams';
 import Login from './pages/Login';
@@ -7,8 +8,18 @@ import Header from './components/Header';
 import './App.css';
 import Players from './pages/Players';
 import PageTeam from './pages/PageTeam';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAuthThunk, selectLogin } from './redux/slices/authSlice';
 
 function App() {
+    const dispatch = useDispatch()
+    const isAuth = useSelector(selectLogin)
+    console.log('isAuth: ', isAuth)
+
+    React.useEffect(() => {
+        dispatch(fetchAuthThunk())
+    }, [dispatch])
+
     return (
         <>
             <Header />

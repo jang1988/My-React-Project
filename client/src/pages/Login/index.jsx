@@ -17,14 +17,14 @@ const Login = () => {
         },
         mode: 'onChange',
     });
-
-    const onSubmit = async (value) => {
-        const data = await dispatch(fetchLoginThunk(value));
-        console.log('data: ', data);
+    
+    const onSubmit = async (values) => {
+        const data = await dispatch(fetchLoginThunk(values))
 
         if (!data.payload) {
             return alert('ERROR!!! WRONG PASSWORD OR LOGIN');
         }
+
         if ('token' in data.payload) {
             window.localStorage.setItem('token', data.payload.token);
         }
