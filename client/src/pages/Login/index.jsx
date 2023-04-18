@@ -12,8 +12,8 @@ const Login = () => {
 
     const { register, handleSubmit } = useForm({
         defaultValues: {
-            email: 'Petro@test.com',
-            password: '12345',
+            email: '',
+            password: '',
         },
         mode: 'onChange',
     });
@@ -53,7 +53,7 @@ const Login = () => {
                     id="email"
                     autoComplete="on"
                     required
-                    {...register('email', { required: 'email' })}
+                    {...register('email')}
                 />
 
                 <label htmlFor="psw">
@@ -66,7 +66,7 @@ const Login = () => {
                     id="psw"
                     autoComplete="on"
                     required
-                    {...register('password', { required: 'password' })}
+                    {...register('password')}
                 />
 
                 <button type="submit" className={style.registerbtn}>
