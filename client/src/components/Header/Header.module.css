@@ -56,10 +56,10 @@
     color: black;
     margin: 0 15px 0 0;
     text-align: center;
-    font-size: 15px;
+    font-size: 10px;
     font-weight: bold;
     border: none;
-    border-radius: 40px;
+    border-radius: 50px;
     cursor: pointer;
 
     background: linear-gradient(233deg, #09f0b5, #04e3f6, #f4305d, #3a30f4, #f430bc);

@@ -9,7 +9,7 @@ const Header = () => {
     let location = useLocation();
     const isAuth = useSelector(selectLogin);
 
-    let btnsMenu = React.useMemo(() => ['teams', 'players', 'login', 'registration'], []);
+    let btnsMenu = React.useMemo(() => ['teams', 'players', 'stats', 'login', 'registration'], []);
 
     const [activeBtn, setActiveBtn] = useState('');
 
@@ -25,6 +25,9 @@ const Header = () => {
         }
         if (location.pathname === `/${btnsMenu[3]}`) {
             setActiveBtn(btnsMenu[3]);
+        }
+        if (location.pathname === `/${btnsMenu[4]}`) {
+            setActiveBtn(btnsMenu[4]);
         }
     }, [location.pathname, btnsMenu]);
 
@@ -45,7 +48,7 @@ const Header = () => {
 
             <div className={style.headerRight}>
                 {isAuth
-                    ? btnsMenu.slice(0, 2).map((btn) => {
+                    ? btnsMenu.slice(0, 3).map((btn) => {
                           return (
                               <Link
                                   onClick={() => onClickButton(btn)}
@@ -57,7 +60,7 @@ const Header = () => {
                               </Link>
                           );
                       })
-                    : btnsMenu.slice(2).map((btn) => {
+                    : btnsMenu.slice(3).map((btn) => {
                           return (
                               <Link
                                   onClick={() => onClickButton(btn)}

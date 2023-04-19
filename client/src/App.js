@@ -4,10 +4,11 @@ import Home from './pages/Teams';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Header from './components/Header';
-
-import './App.css';
+import Stats from "./pages/Stats";
 import Players from './pages/Players'
 import PageTeam from './pages/PageTeam'
+
+import './App.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAuthThunk, selectLogin } from './redux/slices/authSlice'
 
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/players" element={<Players />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/registration" element={<Register />} />
+                <Route path="/stats" element={<Stats />} />
                 <Route path="*" element={<Home />} />
 
                 <Route path="/team/:id" element={<PageTeam />} />
