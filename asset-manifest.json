@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/MyProject/static/css/main.a1e7377b.css",
-    "main.js": "/MyProject/static/js/main.16b2fc59.js",
-    "static/media/players-bg.jpg": "/MyProject/static/media/players-bg.6cdb51dd9f803ac66593.jpg",
-    "static/media/main-bg.jpg": "/MyProject/static/media/main-bg.f0559cd2e5d904cd929d.jpg",
-    "static/media/bg-stats.png": "/MyProject/static/media/bg-stats.dacfa1b07a3a7a609d81.png",
-    "index.html": "/MyProject/index.html",
-    "main.a1e7377b.css.map": "/MyProject/static/css/main.a1e7377b.css.map",
-    "main.16b2fc59.js.map": "/MyProject/static/js/main.16b2fc59.js.map"
+    "main.css": "/My-React-Project/static/css/main.98ca02e1.css",
+    "main.js": "/My-React-Project/static/js/main.16b2fc59.js",
+    "static/media/players-bg.jpg": "/My-React-Project/static/media/players-bg.6cdb51dd9f803ac66593.jpg",
+    "static/media/main-bg.jpg": "/My-React-Project/static/media/main-bg.f0559cd2e5d904cd929d.jpg",
+    "static/media/bg-stats.png": "/My-React-Project/static/media/bg-stats.dacfa1b07a3a7a609d81.png",
+    "index.html": "/My-React-Project/index.html",
+    "main.98ca02e1.css.map": "/My-React-Project/static/css/main.98ca02e1.css.map",
+    "main.16b2fc59.js.map": "/My-React-Project/static/js/main.16b2fc59.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1e7377b.css",
+    "static/css/main.98ca02e1.css",
     "static/js/main.16b2fc59.js"
   ]
 }
