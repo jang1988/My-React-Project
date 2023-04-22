@@ -1,0 +1,33 @@
+.root {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.root div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.root div:nth-child(odd) {
+    background-color: grey;
+}
+
+.root div:nth-child(even) {
+    background-color: #a0a0a0;
+}
+
+.root div p:nth-child(odd) {
+    background-color: grey;
+}
+
+.root div p:nth-child(even) {
+    background-color: #a0a0a0;
+}
+
+.root b {
+    padding-top: 50%;
+    background-color: brown;
+}

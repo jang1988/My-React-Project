@@ -1,14 +1,32 @@
 .root {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 150px;
+    background-image: url('../../../images/bg-stats.png');
+    background-position: center;
+    background-size: auto;
+    background-repeat: repeat;
+    background-color: #000;
 }
 
-.inputWrapper {
+.stats {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+@media (max-width: 950px) {
+    .stats {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 570px) {
+    .stats {
+        align-items: stretch;
+    }
 }

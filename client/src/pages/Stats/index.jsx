@@ -1,30 +1,36 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 import style from './Stats.module.css';
 import { setParams, setStats } from '../../redux/slices/statsSlice';
+import InputStats from '../../components/InputStats';
+import StatsResult from '../../components/StatsResult';
+import Pagination from '../../components/Pagination/Pagination';
 
 const Stats = () => {
-    function chengeValue(event) {
-        setValue(event.target.value);
-    }
     const dispatch = useDispatch();
-    
+
+    const { stats, params } = useSelector((state) => state.stats);
+    console.log('stats: ', stats);
+
     const [seasonValue, setSeasonValue] = React.useState(null);
     const [dateValue, setDateValue] = React.useState(null);
     const [startDateValue, setStartDateValue] = React.useState(null);
     const [endDateValue, setEndDateValue] = React.useState(null);
-    const [postseasonValue, setPostseasonValue] = React.useState("1");
-    const [value, setValue] = React.useState(1);
+    const [value, setValue] = React.useState('1');
+    const [currentPage, setCurrentPage] = React.useState(1);
 
-    const currentPage = 1;
     const page = `page=${currentPage}`;
     const seasons = seasonValue ? `&seasons[]=${seasonValue}` : '';
     const date = dateValue ? `&dates[]=${dateValue}` : '';
     const startDate = startDateValue ? `&start_date=${startDateValue}` : '';
     const endDate = endDateValue ? `&end_date=${endDateValue}` : '';
-    const postseason = postseasonValue === 1 ? `&postseason=${false}` : `&postseason=${true}`;
+    const postseason = value === '1' ? `` : `&postseason=${true}`;
+
+    function chengeValue(event) {
+        setValue(event.target.value);
+    }
 
     const fetchStats = React.useCallback(async () => {
         try {
@@ -33,8 +39,6 @@ const Stats = () => {
             );
             dispatch(setStats(data));
             dispatch(setParams(data));
-
-            console.log('data: ', data);
         } catch (error) {
             console.log('error: ', error);
         }
@@ -46,87 +50,23 @@ const Stats = () => {
 
     return (
         <div className={style.root}>
-            <div className={style.inputWrapper}>
-                <label htmlFor="seasons">
-                    <b>Seasons</b>
-                </label>
-                <input
-                    type="number"
-                    placeholder="Enter Seasons"
-                    onChange={(e) => setSeasonValue(e.target.value)}
-                    name="seasons"
-                    id="seasons"
-                    autoComplete="on"
-                    required
-                />
+            <InputStats
+                setSeasonValue={setSeasonValue}
+                setDateValue={setDateValue}
+                setStartDateValue={setStartDateValue}
+                setEndDateValue={setEndDateValue}
+                value={value}
+                chengeValue={chengeValue}
+            />
+
+            <div className={style.stats}>
+                {stats.map((game) => {
+                    return <StatsResult key={game.id} stats={game}/>;
+                })}
             </div>
 
-            <div className={style.inputWrapper}>
-                <label htmlFor="date">
-                    <b>Date</b>
-                </label>
-                <input
-                    type="date"
-                    placeholder="Enter Date"
-                    onChange={(e) => setDateValue(e.target.value)}
-                    name="date"
-                    id="date"
-                    autoComplete="on"
-                    required
-                />
-            </div>
+            <Pagination params={params} onClickPagin={(number) => setCurrentPage(number)} />
 
-            <div className={style.inputWrapper}>
-                <label htmlFor="date">
-                    <b>Start date</b>
-                </label>
-                <input
-                    type="date"
-                    placeholder="Enter startDate"
-                    onChange={(e) => setStartDateValue(e.target.value)}
-                    name="startDate"
-                    id="startDate"
-                    autoComplete="on"
-                    required
-                />
-            </div>
-
-            <div className={style.inputWrapper}>
-                <label htmlFor="endDate">
-                    <b>End date</b>
-                </label>
-                <input
-                    type="date"
-                    placeholder="Enter endDate"
-                    onChange={(e) => setEndDateValue(e.target.value)}
-                    name="endDate"
-                    id="endDate"
-                    autoComplete="on"
-                    required
-                />
-            </div>
-
-            <div className={style.postseason}>
-                <b>Postseason</b>
-
-                <label htmlFor="OFF">OFF</label>
-                <input
-                    type="radio"
-                    name="radio"
-                    value="1"
-                    checked={postseasonValue === '1' ? true : false}
-                    onChange={chengeValue}
-                />
-
-                <label htmlFor="ON">ON</label>
-                <input
-                    type="radio"
-                    name="radio"
-                    value="2"
-                    checked={postseasonValue === '2' ? true : false}
-                    onChange={chengeValue}
-                />
-            </div>
         </div>
     );
 };
